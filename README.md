@@ -11,7 +11,7 @@ The interceptor packages are developed in Java and uses AspectJ to invoke dispat
 * Accessible, Mutable and Interceptible - They define the annotations __@Accessible__, __@Mutable__ and __@Interceptible__, respectively. They have the event element to be filled for future references.
 * InterceptorAspect - This aspect catches the invocation of a method annotated with __@Interceptible__, has the framework create a _Context_ object and trigger the appropriate dispatcher.
 * InterceptibleFramework - This class provides a context creation and a dispatching mechanism with frameworks. The constructor creates an RMI registry and a _Dispatcher_ object for each method annotated with __@Interceptible__ using reflection and store it in a hashmap. The __createContext__ method takes an event name, creates a field object for each field annotated with __@Accessible__ and/or __@Accessible__ with its event element matching the passed event name, and store it in the _Context_ object.
-![alt text](https://github.com/daichimae/interceptor/images/diagram.png "Class diagram for the interceptor packages")
+![alt text](https://github.com/daichimae/interceptor/blob/master/images/diagram.png "Class diagram for the interceptor packages")
 
 ## Requirements
 Java 8 or higher, AspectJ
