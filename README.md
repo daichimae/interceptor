@@ -1,8 +1,8 @@
 # Interceptors
-The interceptor pattern is a software design pattern that allows services to be added transparently to a framework and triggered automatically when certain events occur. The interceptor pattern can be used when it is unreasonable or impossible to anticipate all the services frameworks must offer to users or to rely upon applications to implement all the necessary services themselves. An implementation of this pattern, which involves dispatchers, accessors and mutators to the internal state of a framework, notification of the occurrence of designated events, interactions between objects over a network and many other components, is rather complicated and time-consuming. The client, server and interceptor packages that are included in this project make it easier for Java framework developers to implement the interceptor pattern.
+The interceptor pattern is a software design pattern that allows services to be added transparently to a framework and triggered automatically when certain events occur. The interceptor pattern can be used when it is unreasonable or impossible to anticipate all the services frameworks must offer to users or to rely upon applications to implement all the necessary services themselves. An implementation of this pattern, which involves dispatchers, accessors and mutators to the internal state of a framework, notification of the occurrence of designated events, interactions between objects over a network and many other components, is rather complicated and time-consuming. This interceptor package makes it easier for Java framework developers to implement the interceptor pattern.
 
-## Components in the Packages
-The interceptor packages are developed in Java and uses AspectJ to invoke dispatchers and Java RMI to enable clients to access to dispatchers and for context. The figure below illustrates the structure of key components in this library and the following is the summary of the classes and the interfaces:
+## Components in the Package
+The interceptor package is developed in Java and uses AspectJ to invoke dispatchers and Java RMI to enable clients to access to dispatchers and for context. The figure below illustrates the structure of key components in this library and the following is the summary of the classes and the interfaces:
 * Interceptor - This interface defines the signatures of a callback method that the server invokes automatically via the dispatching mechanism when the corresponding events occur. This interface extends the Remote interface so dispatchers on the server side can invoke the callback method remotely.
 * DispatcherRemote - This Remote interface enables clients to register concrete interceptors with dispatchers remotely. On the RMI registry, a _DispatcherRemote_ instance is accessed by the name of the event that the _Dispatcher_ instance is associated with.
 * Dispatcher - This class is an implementation of the _DispatcherRemote_ interface. An _Dispatcher_ instance allows clients to register and remove concrete interceptors, and dispatches registered concrete interceptor callbacks when designated events occur. Interceptors are stored in a list and a newly registered interceptor is added at the end of the list.
@@ -13,7 +13,7 @@ The interceptor packages are developed in Java and uses AspectJ to invoke dispat
 * InterceptibleFramework - This class provides a context creation and a dispatching mechanism with frameworks. The constructor creates an RMI registry and a _Dispatcher_ object for each method annotated with __@Interceptible__ using reflection and store it in a hashmap. The __createContext__ method takes an event name, creates a field object for each field annotated with __@Accessible__ and/or __@Accessible__ with its event element matching the passed event name, and store it in the _Context_ object.
 
 <p align="center">
-  <img src="https://github.com/daichimae/interceptor/blob/master/images/diagram.png" alt="Class diagram for the interceptor packages">
+  <img src="https://github.com/daichimae/interceptor/blob/master/images/diagram.png" alt="Class diagram for the interceptor package">
 </p>
 
 ## Requirements
